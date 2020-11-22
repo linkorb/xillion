@@ -1,4 +1,4 @@
-<img src="assets/xillion.svg" />
+<img src="assets/xillion.png" />
 
 Xillion
 =======
