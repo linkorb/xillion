@@ -27,13 +27,13 @@ attribute-definitions:
     type: http://www.w3.org/2001/XMLSchema#string
 
 resource-types:
-  https://linkorb.com/attributes/collection-types/card:
-    description: describes a card
+  https://linkorb.com/attributes/resource-types/card:
+    description: Describes a card
     attribute-definitions:
       - urn:oasis:names:tc:xacml:1.0:subject:subject-id
       - urn:oasis:names:tc:xacml:1.0:resource:resource-id
-  https://linkorb.com/attributes/collection-types/user:
-    description: describes a user
+  https://linkorb.com/attributes/resource-types/user:
+    description: Describes a user
     attribute-definitions:
       - http://linkorb.com/attributes/ubid
       - http://linkorb.com/attributes/group
@@ -41,7 +41,7 @@ resource-types:
 resources:
   alice:
     types:
-      - https://linkorb.com/attributes/collection-types/user
+      - https://linkorb.com/attributes/resource-types/user
     attributes:
       http://linkorb.com/attributes/ubid: alice
       http://linkorb.com/attributes/group: []
@@ -49,7 +49,7 @@ resources:
       urn:oasis:names:tc:xacml:1.0:resource:resource-id: cool
   bob:
     types:
-      - https://linkorb.com/attributes/collection-types/user
+      - https://linkorb.com/attributes/resource-types/user
     attributes:
       http://linkorb.com/attributes/ubid: bob
       http://linkorb.com/attributes/group: []
