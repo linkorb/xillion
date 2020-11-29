@@ -1,0 +1,32 @@
+resources:
+  # ========= [ ATTRIBUTES ] =========
+  urn:oasis:names:tc:xacml:1.0:subject:subject-id:
+    https://core.xillion.cloud/xillion/attributes/alias: Subject
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Is the name of the user as required by Health Insurance Portability and Accountability Act (HIPAA) Privacy Disclosure Accounting. The name will be typed as a string and in plain text.
+  urn:oasis:names:tc:xacml:1.0:subject:group:
+    https://core.xillion.cloud/xillion/attributes/alias: Group
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: User group(s).
+  urn:oasis:names:tc:xacml:1.0:resource:resource-id:
+    https://core.xillion.cloud/xillion/attributes/alias: Resource ID
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Unique identifier of the resource defined by and controlled by the servicing organization. In healthcare this is the patient unique identifier.
+  http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname:
+    https://core.xillion.cloud/xillion/attributes/alias: Given name
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Given name of this person
+  http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress:
+    https://core.xillion.cloud/xillion/attributes/alias: Email address
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Email address

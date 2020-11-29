@@ -1,6 +1,6 @@
 <?php
 
-namespace Xillion\Core\AttributeType\Xml;
+namespace Xillion\Core\DataType\Xml;
 
 
 class DecimalType extends AnyType

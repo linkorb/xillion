@@ -1,10 +1,8 @@
 <?php
 
-namespace Xillion\Core\AttributeType;
+namespace Xillion\Core\DataType;
 
-use Xillion\Core\AttributeValue;
-
-class AttributeType
+class DataType
 {
     protected $id;
 

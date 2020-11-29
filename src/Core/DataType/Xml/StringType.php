@@ -1,8 +1,6 @@
 <?php
 
-namespace Xillion\Core\AttributeType\Xml;
-
-use Xillion\Core\AttributeValue;
+namespace Xillion\Core\DataType\Xml;
 
 class StringType extends AnyType
 {

@@ -1,0 +1,86 @@
+resources:
+  # ========= [ ATTRIBUTES ] =========
+  https://example.linkorb.com/xillion/attributes/ubid:
+    https://core.xillion.cloud/xillion/attributes/alias: Userbase ID
+    https://core.xillion.cloud/xillion/attributes/description: Userbase ID, uniquely identifying a user or organization
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+
+  https://example.linkorb.com/xillion/attributes/user-groups:
+    https://core.xillion.cloud/xillion/attributes/alias: User groups
+    https://core.xillion.cloud/xillion/attributes/description: Groups this user is a member of
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/is-array: true
+      
+  https://example.linkorb.com/xillion/attributes/assignee:
+    https://core.xillion.cloud/xillion/attributes/alias: Assignee
+    https://core.xillion.cloud/xillion/attributes/description: User that this resource is assigned to
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: https://core.xillion.cloud/xillion/data-types/resource
+
+
+  https://example.linkorb.com/xillion/attributes/members:
+    https://core.xillion.cloud/xillion/attributes/alias: Members
+    https://core.xillion.cloud/xillion/attributes/description: User that are a member of this resource
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: https://core.xillion.cloud/xillion/data-types/resource
+    https://core.xillion.cloud/xillion/attributes/is-array: true
+
+
+  # ========= [ PROFILES ] =========
+  https://example.linkorb.com/xillion/profiles/card:
+    https://core.xillion.cloud/xillion/attributes/alias: Card
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Describes a card
+    https://core.xillion.cloud/xillion/attributes/required-attributes:
+      - urn:oasis:names:tc:xacml:1.0:resource:resource-id
+
+  https://example.linkorb.com/xillion/profiles/user:
+    https://core.xillion.cloud/xillion/attributes/alias: User
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Describes a user
+    https://core.xillion.cloud/xillion/attributes/required-attributes:
+      - https://example.linkorb.com/xillion/attributes/ubid
+      - https://example.linkorb.com/xillion/attributes/user-groups
+
+
+  # ========= [ RESOURCES ] =========
+
+  # Example Users Alice & Bob
+  https://example.linkorb.com/xillion/users/alice:
+    https://core.xillion.cloud/xillion/attributes/alias: Alice
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://example.linkorb.com/xillion/profiles/user
+    https://example.linkorb.com/xillion/attributes/ubid: alice
+    https://example.linkorb.com/xillion/attributes/user-groups: []
+    urn:oasis:names:tc:xacml:1.0:subject:subject-id: alice
+    urn:oasis:names:tc:xacml:1.0:resource:resource-id: cool
+
+  https://example.linkorb.com/xillion/users/bob:
+    https://core.xillion.cloud/xillion/attributes/alias: Bob
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://example.linkorb.com/xillion/profiles/user
+    https://example.linkorb.com/xillion/attributes/ubid: bob
+    https://example.linkorb.com/xillion/attributes/user-groups: []
+    urn:oasis:names:tc:xacml:1.0:subject:subject-id: bob
+    urn:oasis:names:tc:xacml:1.0:resource:resource-id: yeah
+    https://example.com/xillion/attributes/color: red
+
+  https://example.linkorb.com/xillion/cards/123:
+    https://core.xillion.cloud/xillion/attributes/alias: Card 123
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://example.linkorb.com/xillion/profiles/card
+    urn:oasis:names:tc:xacml:1.0:resource:resource-id: card-123
+    https://example.linkorb.com/xillion/attributes/assignee: https://example.linkorb.com/xillion/users/alice
+    https://example.linkorb.com/xillion/attributes/members:
+      - https://example.linkorb.com/xillion/users/alice
+      - https://example.linkorb.com/xillion/users/bob
+
+

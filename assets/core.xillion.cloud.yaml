@@ -1,0 +1,100 @@
+resources:
+  # ========= [ DATA TYPES ] =========
+  http://www.w3.org/2001/XMLSchema#string:
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/attributes/data-type
+    https://core.xillion.cloud/xillion/attributes/alias: string
+    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\Xml\StringType
+    https://core.xillion.cloud/xillion/attributes/description: Regular string
+
+  http://www.w3.org/2001/XMLSchema#integer:
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/attributes/data-type
+    https://core.xillion.cloud/xillion/attributes/alias: integer
+    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\Xml\IntegerType
+    https://core.xillion.cloud/xillion/attributes/description: Regular integer
+
+  https://core.xillion.cloud/xillion/data-types/resource:
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/attributes/data-type
+    https://core.xillion.cloud/xillion/attributes/alias: Resource
+    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\ResourceType
+    https://core.xillion.cloud/xillion/attributes/description: Link to another Resource
+
+  # ========= [ ATTRIBUTES ] =========
+  https://core.xillion.cloud/xillion/attributes/data-type:
+    https://core.xillion.cloud/xillion/attributes/alias: Data type
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Data type the values validate against
+
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/is-array:
+    https://core.xillion.cloud/xillion/attributes/alias: Is array?
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Is this value an array?
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/profiles:
+    https://core.xillion.cloud/xillion/attributes/alias: Profiles
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/is-array: true
+    https://core.xillion.cloud/xillion/attributes/description: Array of profiles this resource conforms to
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/description:
+    https://core.xillion.cloud/xillion/attributes/alias: Description
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: Human friendly resource description
+    https://core.xillion.cloud/xillion/attributes/is-array: false
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/required-attributes:
+    https://core.xillion.cloud/xillion/attributes/alias: Required attributes
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/is-array: true
+    https://core.xillion.cloud/xillion/attributes/description: Lists attributes required by a resource that implements a resource type
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/php-validator-class:
+    https://core.xillion.cloud/xillion/attributes/alias: PHP Class
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: PHP Class that implements this resource
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  https://core.xillion.cloud/xillion/attributes/alias:
+    https://core.xillion.cloud/xillion/attributes/alias: Alias
+    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
+    https://core.xillion.cloud/xillion/attributes/description: User-friendly display name for this resource
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+
+  # ========= [ PROFILES ] =========
+
+  # Xillion core profiles
+  https://core.xillion.cloud/xillion/profiles/data-type:
+    https://core.xillion.cloud/xillion/attributes/alias: Data-type
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Defines a data type
+
+  https://core.xillion.cloud/xillion/profiles/profile:
+    https://core.xillion.cloud/xillion/attributes/alias: Profile
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Defines a profile
+
+  https://core.xillion.cloud/xillion/profiles/attribute:
+    https://core.xillion.cloud/xillion/attributes/alias: Attribute
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Defines an attribute
+    https://core.xillion.cloud/xillion/attributes/required-attributes:
+      - https://core.xillion.cloud/xillion/attributes/data-type
+      - https://core.xillion.cloud/xillion/attributes/description

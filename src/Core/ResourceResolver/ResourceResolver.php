@@ -2,21 +2,20 @@
 
 namespace Xillion\Core\ResourceResolver;
 
-use Xillion\Core\Attribute\Attribute;
 use Xillion\Core\ResourceResolver\ResourceConfigInterface;
 use Xillion\Core\Resource\Resource;
 use Xillion\Core\Resource\ResourceInterface;
-use Xillion\Core\AttributeDefinition\AttributeDefinitionRegistry;
+use Xillion\Core\ResourceContext\ResourceContextInterface;
 use RuntimeException;
 
 class ResourceResolver
 {
-    protected $definitionRegistry;
+    protected $context;
     protected $providers;
 
-    public function __construct(AttributeDefinitionRegistry $definitionRegistry, array $providers)
+    public function __construct(ResourceContextInterface $context, array $providers)
     {
-        $this->definitionRegistry = $definitionRegistry;
+        $this->context = $context;
         $this->providers = $providers;
     }
 
@@ -37,27 +36,15 @@ class ResourceResolver
         throw new RuntimeException("Unable to resolve attributes for " . get_class($obj));
     }
 
-    public function toResource(array $config): ResourceInterface
+    public function toResource(array $attributes): ResourceInterface
     {
-        $attributes = [];
-
-        foreach ($config['attributes'] as $k=>$values) {
-            $definition = $this->definitionRegistry->getAttributeDefinition($k);
-            if (!is_array($values)) {
-                $values = [$values];
-            }
-
-            $attributeValues = [];
-            foreach ($values as $value) {
-                $attributeValues[] = $value;
-            }
-            $attributes[] = new Attribute($definition, $attributeValues);
+        $id = $attributes['$id'] ?? null;
+        if ($id) {
+            unset($attributes['$id']);
+        } else {
+            throw new RuntimeException("Missing required \$id attribute");
         }
-
-        $types = [];
-        $id = $config['id'];
-        $resource = new Resource($id, $attributes, $types);
-
+        $resource = new Resource($this->context, $id, $attributes);
         return $resource;
     }
 }
