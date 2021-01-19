@@ -31,6 +31,13 @@ resources:
     https://core.xillion.cloud/xillion/attributes/data-type: https://core.xillion.cloud/xillion/data-types/resource
     https://core.xillion.cloud/xillion/attributes/is-array: true
 
+  https://example.linkorb.com/xillion/attributes/owner:
+    https://core.xillion.cloud/xillion/attributes/alias: Owner
+    https://core.xillion.cloud/xillion/attributes/description: Primary owner of this resource
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/attribute
+    https://core.xillion.cloud/xillion/attributes/data-type: https://core.xillion.cloud/xillion/data-types/resource
+
 
   # ========= [ PROFILES ] =========
   https://example.linkorb.com/xillion/profiles/card:
@@ -50,14 +57,29 @@ resources:
       - https://example.linkorb.com/xillion/attributes/ubid
       - https://example.linkorb.com/xillion/attributes/user-groups
 
+  https://example.linkorb.com/xillion/profiles/owned-resource:
+    https://core.xillion.cloud/xillion/attributes/alias: Owned resource
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: This resource is owned by an owner
+    https://core.xillion.cloud/xillion/attributes/required-attributes:
+      - https://example.linkorb.com/xillion/attributes/owner
+
+  https://example.linkorb.com/xillion/profiles/owner:
+    https://core.xillion.cloud/xillion/attributes/alias: Owner
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Owns resources
 
   # ========= [ RESOURCES ] =========
 
   # Example Users Alice & Bob
   https://example.linkorb.com/xillion/users/alice:
     https://core.xillion.cloud/xillion/attributes/alias: Alice
+    https://core.xillion.cloud/xillion/attributes/description: Alice A. Example
     https://core.xillion.cloud/xillion/attributes/profiles:
       - https://example.linkorb.com/xillion/profiles/user
+      - https://example.linkorb.com/xillion/profiles/owner
     https://example.linkorb.com/xillion/attributes/ubid: alice
     https://example.linkorb.com/xillion/attributes/user-groups: []
     urn:oasis:names:tc:xacml:1.0:subject:subject-id: alice
@@ -71,12 +93,15 @@ resources:
     urn:oasis:names:tc:xacml:1.0:subject:subject-id: bob
     https://example.com/xillion/attributes/color: red
 
+
   https://example.linkorb.com/xillion/cards/123:
     https://core.xillion.cloud/xillion/attributes/alias: Card 123
     https://core.xillion.cloud/xillion/attributes/profiles:
       - https://example.linkorb.com/xillion/profiles/card
+      - https://example.linkorb.com/xillion/profiles/owned-resource
     urn:oasis:names:tc:xacml:1.0:resource:resource-id: card-123
     https://example.linkorb.com/xillion/attributes/assignee: https://example.linkorb.com/xillion/users/alice
+    https://example.linkorb.com/xillion/attributes/owner: https://example.linkorb.com/xillion/users/alice
     https://example.linkorb.com/xillion/attributes/members:
       - https://example.linkorb.com/xillion/users/alice
       - https://example.linkorb.com/xillion/users/bob
