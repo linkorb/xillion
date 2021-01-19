@@ -98,3 +98,9 @@ resources:
     https://core.xillion.cloud/xillion/attributes/required-attributes:
       - https://core.xillion.cloud/xillion/attributes/data-type
       - https://core.xillion.cloud/xillion/attributes/description
+
+  https://core.xillion.cloud/xillion/profiles/container:
+    https://core.xillion.cloud/xillion/attributes/alias: Container
+    https://core.xillion.cloud/xillion/attributes/profiles:
+      - https://core.xillion.cloud/xillion/profiles/profile
+    https://core.xillion.cloud/xillion/attributes/description: Contains other resources as part of a hierarchy
