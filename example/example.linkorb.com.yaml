@@ -14,7 +14,7 @@ resources:
       - https://core.xillion.cloud/xillion/profiles/attribute
     https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
     https://core.xillion.cloud/xillion/attributes/is-array: true
-      
+
   https://example.linkorb.com/xillion/attributes/assignee:
     https://core.xillion.cloud/xillion/attributes/alias: Assignee
     https://core.xillion.cloud/xillion/attributes/description: User that this resource is assigned to
@@ -61,7 +61,6 @@ resources:
     https://example.linkorb.com/xillion/attributes/ubid: alice
     https://example.linkorb.com/xillion/attributes/user-groups: []
     urn:oasis:names:tc:xacml:1.0:subject:subject-id: alice
-    urn:oasis:names:tc:xacml:1.0:resource:resource-id: cool
 
   https://example.linkorb.com/xillion/users/bob:
     https://core.xillion.cloud/xillion/attributes/alias: Bob
@@ -70,7 +69,6 @@ resources:
     https://example.linkorb.com/xillion/attributes/ubid: bob
     https://example.linkorb.com/xillion/attributes/user-groups: []
     urn:oasis:names:tc:xacml:1.0:subject:subject-id: bob
-    urn:oasis:names:tc:xacml:1.0:resource:resource-id: yeah
     https://example.com/xillion/attributes/color: red
 
   https://example.linkorb.com/xillion/cards/123:
