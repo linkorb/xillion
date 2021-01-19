@@ -76,6 +76,9 @@ class Resource implements ResourceInterface, ArrayAccess
     {
         // echo "Getting attribute $key\n";
         $value = $this->getAttribute($key);
+        if (!$value) {
+            return null;
+        }
         $attributeResource = $this->context->getResource($key);
 
         if ($this->id!='https://core.xillion.cloud/xillion/attributes/data-type') {
