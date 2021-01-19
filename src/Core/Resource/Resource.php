@@ -33,6 +33,32 @@ class Resource implements ResourceInterface, ArrayAccess
         return $this->attributes;
     }
 
+
+
+    public function is(string $key, $value): bool
+    {
+        if (!$this->hasAttribute($key)) {
+            return false;
+        }
+        $attributeResource = $this->context->getResource($key);
+
+        $v = $this->getAttribute($key);
+
+        if ($attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/is-array')) {
+            foreach ($v as $v2) {
+                if ($value==$v2) {
+                    return true;
+                }
+            }
+        } else {
+            if ($value==$v) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     public function hasAttribute(string $key): bool
     {
         return isset($this->attributes[$key]);
