@@ -2,18 +2,17 @@
 
 namespace Xillion\Core\Resource;
 
-use Xillion\Core\ResourceContext\ResourceContext;
-use Xillion\Core\ResourceType\ResourceTypeRegistry;
+use Xillion\Core\ResourceRepository\ResourceRepositoryInterface;
 use RuntimeException;
 
 class ResourceLoader
 {
 
-    public function load(ResourceContext $context, array $config): void
+    public function load(ResourceRepositoryInterface $repository, array $config): void
     {
         foreach ($config as $resourceId=>$attributes) {
-            $resource = new Resource($context, $resourceId, $attributes);
-            $context->addResource($resource);
+            $resource = new Resource($repository, $resourceId, $attributes);
+            $repository->addResource($resource);
         }
     }
 

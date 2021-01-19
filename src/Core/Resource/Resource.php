@@ -4,14 +4,16 @@ namespace Xillion\Core\Resource;
 
 use ArrayAccess;
 use Xillion\Core\ResourceContext\ResourceContext;
+use Xillion\Core\ResourceRepository\ResourceRepositoryInterface;
 
 class Resource implements ResourceInterface, ArrayAccess
 {
     protected $context;
 
-    public function __construct(ResourceContext $context, string $id, array $attributes)
+    public function __construct(ResourceRepositoryInterface $repository, string $id, array $attributes)
     {
-        $this->context = $context;
+        $this->repository = $repository;
+        $this->context = $this->repository->getContext();
         $this->id = $id;
         $this->attributes = $attributes;
     }
@@ -21,9 +23,9 @@ class Resource implements ResourceInterface, ArrayAccess
         return $this->id;
     }
 
-    protected function addAttribute(string $key, $v): void
+    protected function addAttribute(string $key, $value): void
     {
-        $this->attributes[$key] = $v;
+        $this->attributes[$key] = $value;
     }
 
     public function getAttributes(): array

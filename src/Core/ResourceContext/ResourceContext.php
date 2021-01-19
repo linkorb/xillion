@@ -3,56 +3,73 @@
 namespace Xillion\Core\ResourceContext;
 
 use Xillion\Core\Resource\ResourceInterface;
+use Xillion\Core\ResourceRepository\ResourceRepositoryInterface;
 use Xillion\Core\Utils\ArrayUtils;
 use RuntimeException;
 
-class ResourceContext implements ResourceContextInterface
+class ResourceContext implements ResourceContextInterface, ResourceRepositoryInterface
 {
-    protected $resources = [];
+    protected $repositories = [];
 
-    public function __construct()
+    // Required by ResourceRepositoryInterface
+    public function getContext(): ResourceContextInterface
     {
+        return $this;
+    }
+
+    public function addRepository(ResourceRepositoryInterface $repository)
+    {
+        $this->repositories[] = $repository;
     }
 
     public function addResource(ResourceInterface $resource)
     {
-        $this->resources[$resource->getId()] = $resource;
+        throw new RuntimeException("You can't add a resource to the context directly. Add the resource to a repository instead.");
     }
 
     public function getResources(): array
     {
-        return $this->resources;
+        $resources = [];
+        foreach ($this->repositories as $repository) {
+            $repoResources = $repository->getResources();
+            $resources = array_merge($resources, $repoResources);
+        }
+
+        return $resources;
     }
 
     public function hasResource(string $id): bool
     {
-        return isset($this->resources[$id]);
+        foreach ($this->repositories as $repository) {
+            $has = $repository->hasResource($id);
+            if ($has) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function getResource(string $id): ?ResourceInterface
     {
-        if (!$this->hasResource($id)) {
-            return null;
+        foreach ($this->repositories as $repository) {
+            $has = $repository->hasResource($id);
+            if ($has) {
+                return $repository->getResource($id);
+            }
         }
-        return $this->resources[$id];
+        return null;
     }
 
     public function getResourcesByAttribute(string $attributeId, string $value): array
     {
         $resources = [];
-        foreach ($this->resources as $resource) {
-            if ($resource->hasAttribute($attributeId)) {
-                $values = $resource->getAttribute($attributeId);
-                if (!is_array($values)) {
-                    $values = [$values];
-                }
-                foreach ($values as $v) {
-                    if ($v==$value) {
-                        $resources[$resource->getId()] = $resource;
-                    }
-                }
-            }
+
+        foreach ($this->repositories as $repository) {
+            $repoResources = $repository->getResourcesByAttribute($attributeId, $value);
+            $resources = array_merge($resources, $repoResources);
         }
         return $resources;
     }
+
+
 }

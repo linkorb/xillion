@@ -13,7 +13,7 @@ use Xillion\Core\Validator\Validator;
 use Xillion\Core\AttributeType\AttributeType;
 use Xillion\Core\AttributeType\AttributeTypeRegistryLoader;
 use Xillion\Core\ResourceResolver\ResourceResolver;
-
+use Xillion\Core\ResourceRepository\ArrayResourceRepository;
 use Example\Entity\User;
 use Example\Entity\Project;
 use Example\ResourceProvider\ProjectResourceProvider;
@@ -21,6 +21,10 @@ use Example\ResourceProvider\ProjectResourceProvider;
 use Symfony\Component\Yaml\Yaml;
 
 $context = new ResourceContext();
+// $context = new ChainRepository();
+$arrayRepository = new ArrayResourceRepository($context);
+$context->addRepository($arrayRepository);
+
 
 $filenames = [
     __DIR__ . '/../assets/xacml-10.xillion.cloud.yaml',
@@ -36,7 +40,7 @@ foreach ($filenames as $filename) {
 
     $yaml = file_get_contents($filename);
     $config = Yaml::parse($yaml);
-    $loader->load($context, $config['resources']);
+    $loader->load($arrayRepository, $config['resources']);
 }
 
 foreach ($context->getResources() as $resource) {
@@ -44,7 +48,6 @@ foreach ($context->getResources() as $resource) {
     if ($resource->hasAttribute('https://core.xillion.cloud/xillion/attributes/alias')) {
         $v = $resource->getAttribute('https://core.xillion.cloud/xillion/attributes/alias');
         echo " (\e[96m" . $v . "\e[0m)";
-
     }
     echo ":" . PHP_EOL;
     foreach ($resource->getAttributes() as $key=>$values) {
@@ -91,7 +94,6 @@ print_r($violations);
 $user = new User('joe', 'Joe Johnson', 'joe@example.web', ['management', 'sales']);
 $project = new Project('wd', 'World Domination', ['sales', 'support']);
 
-
 // Instantiate resolver
 
 $providers = [
@@ -112,8 +114,6 @@ foreach ($resource->getAttributes() as $k=>$v) {
         print_r($issues);
     }
 }
-
-
 
 $resource = $resolver->resolve($project);
 echo "=== PROJECT ===\n";
