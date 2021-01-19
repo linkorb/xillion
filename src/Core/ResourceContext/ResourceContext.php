@@ -71,5 +71,16 @@ class ResourceContext implements ResourceContextInterface, ResourceRepositoryInt
         return $resources;
     }
 
+    public function getResourcesWithAttribute(string $attributeId): array
+    {
+        $resources = [];
+
+        foreach ($this->repositories as $repository) {
+            $repoResources = $repository->getResourcesWithAttribute($attributeId);
+            $resources = array_merge($resources, $repoResources);
+        }
+        return $resources;
+    }
+
 
 }

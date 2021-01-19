@@ -62,4 +62,15 @@ class ArrayResourceRepository implements ResourceRepositoryInterface
         }
         return $resources;
     }
+
+    public function getResourcesWithAttribute(string $attributeId): array
+    {
+        $resources = [];
+        foreach ($this->resources as $resource) {
+            if ($resource->hasAttribute($attributeId)) {
+                $resources[$resource->getId()] = $resource;
+            }
+        }
+        return $resources;
+    }
 }
