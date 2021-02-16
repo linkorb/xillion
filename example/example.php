@@ -11,6 +11,8 @@ use Xillion\Core\ResourceRepository\ArrayResourceRepository;
 use Example\Entity\User;
 use Example\Entity\Project;
 use Example\ResourceProvider\ProjectResourceProvider;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Psr16Cache;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -24,7 +26,8 @@ $loader = new ResourceLoader();
 $yaml = file_get_contents(__DIR__ . '/xillion.manifest.yaml');
 $manifestConfig = Yaml::parse($yaml);
 
-$loader->loadManifest($arrayRepository, $manifestConfig, __DIR__ . '/cache');
+$cache = new Psr16Cache(new FilesystemAdapter('example', 3600, __DIR__ . '/cache'));
+$loader->loadManifest($arrayRepository, $manifestConfig, $cache);
 
 /*
 $filenames = [
