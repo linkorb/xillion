@@ -4,6 +4,7 @@ tmp/
 *.bak
 *.swp
 *~.nib
+example/cache
 data/
 local.properties
 .settings/

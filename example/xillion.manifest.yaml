@@ -1,0 +1,8 @@
+dependencies:
+  xacml-10.xillion.cloud:
+    url: https://raw.githubusercontent.com/linkorb/xillion/master/assets/xacml-10.xillion.cloud.yaml
+  core.xillion.cloud:
+    url: https://raw.githubusercontent.com/linkorb/xillion/master/assets/core.xillion.cloud.yaml
+  example.linkorb.com:
+    url: https://raw.githubusercontent.com/linkorb/xillion/master/example/example.linkorb.com.yaml
+

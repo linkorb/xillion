@@ -19,13 +19,19 @@ $context = new ResourceContext();
 $arrayRepository = new ArrayResourceRepository($context);
 $context->addRepository($arrayRepository);
 
+$loader = new ResourceLoader();
 
+$yaml = file_get_contents(__DIR__ . '/xillion.manifest.yaml');
+$manifestConfig = Yaml::parse($yaml);
+
+$loader->loadManifest($arrayRepository, $manifestConfig, __DIR__ . '/cache');
+
+/*
 $filenames = [
     __DIR__ . '/../assets/xacml-10.xillion.cloud.yaml',
     __DIR__ . '/../assets/core.xillion.cloud.yaml',
     __DIR__ . '/example.linkorb.com.yaml',
 ];
-$loader = new ResourceLoader();
 
 foreach ($filenames as $filename) {
     if (!file_exists($filename)) {
@@ -36,6 +42,9 @@ foreach ($filenames as $filename) {
     $config = Yaml::parse($yaml);
     $loader->load($arrayRepository, $config['resources']);
 }
+*/
+
+
 
 foreach ($context->getResources() as $resource) {
     echo "\e[32m" . $resource->getId() . "\e[0m";
