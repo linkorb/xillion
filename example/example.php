@@ -51,8 +51,8 @@ foreach ($filenames as $filename) {
 
 foreach ($context->getResources() as $resource) {
     echo "\e[32m" . $resource->getId() . "\e[0m";
-    if ($resource->hasAttribute('https://core.xillion.cloud/xillion/attributes/alias')) {
-        $v = $resource->getAttribute('https://core.xillion.cloud/xillion/attributes/alias');
+    if ($resource->hasAttribute('core.xillion.cloud/alias')) {
+        $v = $resource->getAttribute('core.xillion.cloud/alias');
         echo " (\e[96m" . $v . "\e[0m)";
     }
     echo ":" . PHP_EOL;
@@ -78,16 +78,16 @@ foreach ($context->getResources() as $resource) {
 }
 
 $resources = $context->getResourcesByAttribute(
-    'https://core.xillion.cloud/xillion/attributes/profiles',
-    'https://example.linkorb.com/xillion/profiles/user'
+    'core.xillion.cloud/profiles',
+    'example.linkorb.com/profiles/user'
 );
 foreach ($resources as $resource) {
-    echo "* " . $resource['https://example.linkorb.com/xillion/attributes/ubid'] . PHP_EOL;
+    echo "* " . $resource['example.linkorb.com/ubid'] . PHP_EOL;
 }
 
 $resources = $context->getResourcesByAttribute(
-    'https://core.xillion.cloud/xillion/attributes/profiles',
-    'https://core.xillion.cloud/xillion/profiles/profile'
+    'core.xillion.cloud/profiles',
+    'core.xillion.cloud/profiles/profile'
 );
 foreach ($resources as $resource) {
     echo "* " . $resource->getId() . PHP_EOL;
@@ -134,14 +134,14 @@ foreach ($resource->getAttributes() as $k=>$v) {
 }
 
 
-$card = $context->getResource('https://example.linkorb.com/xillion/cards/123');
-echo($card['https://core.xillion.cloud/xillion/attributes/alias']) . PHP_EOL;
+$card = $context->getResource('example.linkorb.com/cards/123');
+echo($card['core.xillion.cloud/alias']) . PHP_EOL;
 
-$assignee = $card->resolve('https://example.linkorb.com/xillion/attributes/assignee');
+$assignee = $card->resolve('example.linkorb.com/assignee');
 
 echo "Assignee: " . $assignee->getId() . PHP_EOL;
 
-$members = $card->resolve('https://example.linkorb.com/xillion/attributes/members');
+$members = $card->resolve('example.linkorb.com/members');
 foreach ($members as $member) {
     echo "Member: " . $member->getId() . PHP_EOL;
 }

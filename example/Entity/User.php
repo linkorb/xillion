@@ -23,13 +23,13 @@ class User implements ResourceConfigInterface
     {
         return [
             '$id' => $this->id,
-            'https://core.xillion.cloud/xillion/attributes/alias' => $this->id,
-            'https://core.xillion.cloud/xillion/attributes/profiles' => [
-                'https://example.linkorb.com/xillion/profiles/user',
+            'core.xillion.cloud/display-name' => $this->id,
+            'core.xillion.cloud/profiles' => [
+                'example.linkorb.com/profiles/user',
             ],
             'urn:oasis:names:tc:xacml:1.0:subject:subject-id' => $this->id,
-            'https://example.linkorb.com/xillion/attributes/ubid' => $this->id,
-            'https://example.linkorb.com/xillion/attributes/user-groups' => $this->groupNames,
+            'example.linkorb.com/ubid' => $this->id,
+            'example.linkorb.com/user-groups' => $this->groupNames,
             'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname' => $this->displayName,
             'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress' => $this->email,
         ];

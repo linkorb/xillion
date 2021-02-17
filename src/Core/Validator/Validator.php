@@ -20,7 +20,7 @@ class Validator
             return [$issue];
         }
 
-        $dataTypeId = $attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/data-type') ?? null;
+        $dataTypeId = $attributeResource->getAttribute('core.xillion.cloud/data-type') ?? null;
         if (!$dataTypeId) {
             $issue = new ValidationIssue(ValidationIssue::ERROR, 'Data type not specified on attribute: ' . $id);
             return [$issue];
@@ -31,8 +31,8 @@ class Validator
             return [$issue];
         }
 
-        $isArray = $attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/is-array') ?? false;
-        $phpValidatorClassName = $dataTypeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/php-validator-class');
+        $isArray = $attributeResource->getAttribute('core.xillion.cloud/is-array') ?? false;
+        $phpValidatorClassName = $dataTypeResource->getAttribute('core.xillion.cloud/php-validator-class');
         if ($phpValidatorClassName) {
 
             $values = $value;
@@ -63,7 +63,7 @@ class Validator
             $issues = array_merge($issues, $newIssues);
         }
 
-        $profileIds = $resource->getAttribute('https://core.xillion.cloud/xillion/attributes/profiles') ?? [];
+        $profileIds = $resource->getAttribute('core.xillion.cloud/profiles') ?? [];
         foreach ($profileIds as $profileId) {
             $profileResource = $this->context->getResource($profileId);
             if (!$profileResource) {
@@ -71,7 +71,7 @@ class Validator
                 return [$issue];
             }
             // echo "  PROFILE: " . $profileResource->getId() . PHP_EOL;
-            $requiredAttributeIds = $profileResource->getAttribute('https://core.xillion.cloud/xillion/attributes/required-attributes') ?? [];
+            $requiredAttributeIds = $profileResource->getAttribute('core.xillion.cloud/required-attributes') ?? [];
             foreach ($requiredAttributeIds as $requiredAttributeId) {
                 // echo "    REQUIRES ATTRIBUTE: " . $requiredAttributeId . PHP_EOL;
                 if (!$resource->hasAttribute($requiredAttributeId)) {

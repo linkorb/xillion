@@ -44,7 +44,7 @@ class Resource implements ResourceInterface, ArrayAccess
 
         $v = $this->getAttribute($key);
 
-        if ($attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/is-array')) {
+        if ($attributeResource->getAttribute('core.xillion.cloud/is-array')) {
             foreach ($v as $v2) {
                 if ($value==$v2) {
                     return true;
@@ -81,9 +81,9 @@ class Resource implements ResourceInterface, ArrayAccess
         }
         $attributeResource = $this->context->getResource($key);
 
-        if ($this->id!='https://core.xillion.cloud/xillion/attributes/data-type') {
-            if ($attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/data-type') == 'https://core.xillion.cloud/xillion/data-types/resource') {
-                if ($attributeResource->getAttribute('https://core.xillion.cloud/xillion/attributes/is-array')) {
+        if ($this->id!='core.xillion.cloud/data-type') {
+            if ($attributeResource->getAttribute('core.xillion.cloud/data-type') == 'core.xillion.cloud/data-types/resource') {
+                if ($attributeResource->getAttribute('core.xillion.cloud/is-array')) {
                     $resources = [];
                     foreach ($value as $v) {
                         $resources[] = $this->context->getResource($v);

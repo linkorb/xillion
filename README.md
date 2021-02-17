@@ -41,6 +41,20 @@ It allows you to work with Resources and their collection of attributes.
 * Open Policy Agent
 * SAML2
 
+## Naming conventions:
+
+* All identifiers are prefixed with a FQDN (Fully Qualified Domain Name). I.e. `core.xillion.cloud/display-name`
+* The identifier FQDN is owned by the entity that defines the identifier (i.e. do not randomly defined resource or attribute identifiers with domain names that you do not own).
+* Attribute identifiers do not specify a scheme (i.e. `http://`, `https://`, `file://` etc)
+* Attribute identifiers do not contain a path prefix (i.e. do not prefix paths with `/xillion` etc)
+* Identifiers are lower-case only, and allow dashes for word-spacing (i.e. `/display-name`)
+* Any level of sub-paths is allowed in identifiers. The recommendation is to keep the levels to a minimum (i.e `x.example.web/a/b/c/d/e/f is allowed but discouraged)
+* Profile identifiers are in a sub-path prefixed with `/profiles`.
+* Data-type identifiers are in a sub-path prefixed with `/data-types`.
+* Attribute identifiers do not use a prefix. (i.e. do not use prefix `/attributes`)
+* Resource identifiers do not use a prefix. (i.e. do not use prefix `/resources`)
+* Packages (FQDN) define either a set of attributes and profiles (library) -or- resources (content), not both.
+
 ## License
 
 MIT. Please refer to the [license file](LICENSE) for details.

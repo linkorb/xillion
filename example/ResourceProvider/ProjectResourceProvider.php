@@ -20,7 +20,7 @@ class ProjectResourceProvider implements ResourceConfigProviderInterface
         return [
             '$id' => $obj->getId(),
             'urn:oasis:names:tc:xacml:1.0:resource:resource-id' => $obj->getId(),
-            'https://example.linkorb.com/xillion/attributes/user-groups' => $obj->getGroupNames(),
+            'example.linkorb.com/user-groups' => $obj->getGroupNames(),
         ];
     }
 }

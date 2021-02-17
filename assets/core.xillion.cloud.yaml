@@ -1,106 +1,106 @@
 resources:
   # ========= [ DATA TYPES ] =========
-  http://www.w3.org/2001/XMLSchema#string:
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/attributes/data-type
-    https://core.xillion.cloud/xillion/attributes/alias: string
-    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\Xml\StringType
-    https://core.xillion.cloud/xillion/attributes/description: Regular string
+  core.xillion.cloud/data-types/string:
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/data-type
+    core.xillion.cloud/display-name: string
+    core.xillion.cloud/php-validator-class: Xillion\Core\DataType\Xml\StringType
+    core.xillion.cloud/description: Regular string
 
-  http://www.w3.org/2001/XMLSchema#integer:
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/attributes/data-type
-    https://core.xillion.cloud/xillion/attributes/alias: integer
-    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\Xml\IntegerType
-    https://core.xillion.cloud/xillion/attributes/description: Regular integer
+  core.xillion.cloud/data-types/integer:
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/data-type
+    core.xillion.cloud/display-name: integer
+    core.xillion.cloud/php-validator-class: Xillion\Core\DataType\Xml\IntegerType
+    core.xillion.cloud/description: Regular integer
 
-  https://core.xillion.cloud/xillion/data-types/resource:
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/attributes/data-type
-    https://core.xillion.cloud/xillion/attributes/alias: Resource
-    https://core.xillion.cloud/xillion/attributes/php-validator-class: Xillion\Core\DataType\ResourceType
-    https://core.xillion.cloud/xillion/attributes/description: Link to another Resource
+  core.xillion.cloud/data-types/resource:
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/data-type
+    core.xillion.cloud/display-name: Resource
+    core.xillion.cloud/php-validator-class: Xillion\Core\DataType\ResourceType
+    core.xillion.cloud/description: Link to another Resource
 
   # ========= [ ATTRIBUTES ] =========
-  https://core.xillion.cloud/xillion/attributes/data-type:
-    https://core.xillion.cloud/xillion/attributes/alias: Data type
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/description: Data type the values validate against
+  core.xillion.cloud/data-type:
+    core.xillion.cloud/display-name: Data type
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: Data type the values validate against
 
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/is-array:
-    https://core.xillion.cloud/xillion/attributes/alias: Is array?
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/description: Is this value an array?
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/is-array:
+    core.xillion.cloud/display-name: Is array?
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: Is this value an array?
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/profiles:
-    https://core.xillion.cloud/xillion/attributes/alias: Profiles
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/is-array: true
-    https://core.xillion.cloud/xillion/attributes/description: Array of profiles this resource conforms to
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/profiles:
+    core.xillion.cloud/display-name: Profiles
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/is-array: true
+    core.xillion.cloud/description: Array of profiles this resource conforms to
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/description:
-    https://core.xillion.cloud/xillion/attributes/alias: Description
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/description: Human friendly resource description
-    https://core.xillion.cloud/xillion/attributes/is-array: false
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/description:
+    core.xillion.cloud/display-name: Description
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: Human friendly resource description
+    core.xillion.cloud/is-array: false
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/required-attributes:
-    https://core.xillion.cloud/xillion/attributes/alias: Required attributes
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/is-array: true
-    https://core.xillion.cloud/xillion/attributes/description: Lists attributes required by a resource that implements a resource type
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/required-attributes:
+    core.xillion.cloud/display-name: Required attributes
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/is-array: true
+    core.xillion.cloud/description: Lists attributes required by a resource that implements a resource type
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/php-validator-class:
-    https://core.xillion.cloud/xillion/attributes/alias: PHP Class
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/description: PHP Class that implements this resource
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/php-validator-class:
+    core.xillion.cloud/display-name: PHP Class
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: PHP Class that implements this resource
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
-  https://core.xillion.cloud/xillion/attributes/alias:
-    https://core.xillion.cloud/xillion/attributes/alias: Alias
-    https://core.xillion.cloud/xillion/attributes/data-type: http://www.w3.org/2001/XMLSchema#string
-    https://core.xillion.cloud/xillion/attributes/description: User-friendly display name for this resource
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/attribute
+  core.xillion.cloud/display-name:
+    core.xillion.cloud/display-name: Alias
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: User-friendly display name for this resource
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
   # ========= [ PROFILES ] =========
 
   # Xillion core profiles
-  https://core.xillion.cloud/xillion/profiles/data-type:
-    https://core.xillion.cloud/xillion/attributes/alias: Data-type
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/profile
-    https://core.xillion.cloud/xillion/attributes/description: Defines a data type
+  core.xillion.cloud/profiles/data-type:
+    core.xillion.cloud/display-name: Data-type
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/profile
+    core.xillion.cloud/description: Defines a data type
 
-  https://core.xillion.cloud/xillion/profiles/profile:
-    https://core.xillion.cloud/xillion/attributes/alias: Profile
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/profile
-    https://core.xillion.cloud/xillion/attributes/description: Defines a profile
+  core.xillion.cloud/profiles/profile:
+    core.xillion.cloud/display-name: Profile
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/profile
+    core.xillion.cloud/description: Defines a profile
 
-  https://core.xillion.cloud/xillion/profiles/attribute:
-    https://core.xillion.cloud/xillion/attributes/alias: Attribute
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/profile
-    https://core.xillion.cloud/xillion/attributes/description: Defines an attribute
-    https://core.xillion.cloud/xillion/attributes/required-attributes:
-      - https://core.xillion.cloud/xillion/attributes/data-type
-      - https://core.xillion.cloud/xillion/attributes/description
+  core.xillion.cloud/profiles/attribute:
+    core.xillion.cloud/display-name: Attribute
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/profile
+    core.xillion.cloud/description: Defines an attribute
+    core.xillion.cloud/required-attributes:
+      - core.xillion.cloud/data-type
+      - core.xillion.cloud/description
 
-  https://core.xillion.cloud/xillion/profiles/container:
-    https://core.xillion.cloud/xillion/attributes/alias: Container
-    https://core.xillion.cloud/xillion/attributes/profiles:
-      - https://core.xillion.cloud/xillion/profiles/profile
-    https://core.xillion.cloud/xillion/attributes/description: Contains other resources as part of a hierarchy
+  core.xillion.cloud/profiles/container:
+    core.xillion.cloud/display-name: Container
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/profile
+    core.xillion.cloud/description: Contains other resources as part of a hierarchy
