@@ -1,0 +1,18 @@
+resources:
+  # ========= [ ATTRIBUTES ] =========
+  timeline.xillion.cloud/phase/display:
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
+    core.xillion.cloud/display: Phase name
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: Display name of the phase of a timeline event
+
+  # ========= [ PROFILES ] =========
+
+  timeline.xillion.cloud/profiles/event:
+    core.xillion.cloud/display: Timeline event
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/profile
+    core.xillion.cloud/description: Timeline event
+    core.xillion.cloud/required-attributes:
+      - timeline.xillion.cloud/phase/display

@@ -1,14 +1,14 @@
 resources:
   # ========= [ ATTRIBUTES ] =========
   example.linkorb.com/ubid:
-    core.xillion.cloud/display-name: Userbase ID
+    core.xillion.cloud/display: Userbase ID
     core.xillion.cloud/description: Userbase ID, uniquely identifying a user or organization
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
 
   example.linkorb.com/user-groups:
-    core.xillion.cloud/display-name: User groups
+    core.xillion.cloud/display: User groups
     core.xillion.cloud/description: Groups this user is a member of
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
@@ -16,7 +16,7 @@ resources:
     core.xillion.cloud/is-array: true
 
   example.linkorb.com/assignee:
-    core.xillion.cloud/display-name: Assignee
+    core.xillion.cloud/display: Assignee
     core.xillion.cloud/description: User that this resource is assigned to
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
@@ -24,7 +24,7 @@ resources:
 
 
   example.linkorb.com/members:
-    core.xillion.cloud/display-name: Members
+    core.xillion.cloud/display: Members
     core.xillion.cloud/description: User that are a member of this resource
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
@@ -32,7 +32,7 @@ resources:
     core.xillion.cloud/is-array: true
 
   example.linkorb.com/owner:
-    core.xillion.cloud/display-name: Owner
+    core.xillion.cloud/display: Owner
     core.xillion.cloud/description: Primary owner of this resource
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
@@ -41,7 +41,7 @@ resources:
 
   # ========= [ PROFILES ] =========
   example.linkorb.com/profiles/card:
-    core.xillion.cloud/display-name: Card
+    core.xillion.cloud/display: Card
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/profile
     core.xillion.cloud/description: Describes a card
@@ -49,7 +49,7 @@ resources:
       - urn:oasis:names:tc:xacml:1.0:resource:resource-id
 
   example.linkorb.com/profiles/user:
-    core.xillion.cloud/display-name: User
+    core.xillion.cloud/display: User
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/profile
     core.xillion.cloud/description: Describes a user
@@ -58,7 +58,7 @@ resources:
       - example.linkorb.com/user-groups
 
   example.linkorb.com/profiles/owned-resource:
-    core.xillion.cloud/display-name: Owned resource
+    core.xillion.cloud/display: Owned resource
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/profile
     core.xillion.cloud/description: This resource is owned by an owner
@@ -66,7 +66,7 @@ resources:
       - example.linkorb.com/owner
 
   example.linkorb.com/profiles/owner:
-    core.xillion.cloud/display-name: Owner
+    core.xillion.cloud/display: Owner
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/profile
     core.xillion.cloud/description: Owns resources
@@ -75,7 +75,7 @@ resources:
 
   # Example Users Alice & Bob
   example.linkorb.com/users/alice:
-    core.xillion.cloud/display-name: Alice
+    core.xillion.cloud/display: Alice
     core.xillion.cloud/description: Alice A. Example
     core.xillion.cloud/profiles:
       - example.linkorb.com/profiles/user
@@ -85,7 +85,7 @@ resources:
     urn:oasis:names:tc:xacml:1.0:subject:subject-id: alice
 
   example.linkorb.com/users/bob:
-    core.xillion.cloud/display-name: Bob
+    core.xillion.cloud/display: Bob
     core.xillion.cloud/profiles:
       - example.linkorb.com/profiles/user
     example.linkorb.com/ubid: bob
@@ -95,7 +95,7 @@ resources:
 
 
   example.linkorb.com/cards/123:
-    core.xillion.cloud/display-name: Card 123
+    core.xillion.cloud/display: Card 123
     core.xillion.cloud/profiles:
       - example.linkorb.com/profiles/card
       - example.linkorb.com/profiles/owned-resource
@@ -106,4 +106,15 @@ resources:
       - example.linkorb.com/users/alice
       - example.linkorb.com/users/bob
 
+  example.linkorb.com/cards/456:
+    core.xillion.cloud/display: Card 456
+    core.xillion.cloud/profiles:
+      - example.linkorb.com/profiles/card
+      - example.linkorb.com/profiles/owned-resource
+    example.linkorb.com/assignee$:
+      core.xillion.cloud/display: Eve
+      core.xillion.cloud/profiles:
+        - example.linkorb.com/profiles/user
+
+    example.linkorb.com/owner: example.linkorb.com/users/alice
 

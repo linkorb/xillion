@@ -1,31 +1,31 @@
 resources:
   # ========= [ ATTRIBUTES ] =========
   urn:oasis:names:tc:xacml:1.0:subject:subject-id:
-    core.xillion.cloud/display-name: Subject
+    core.xillion.cloud/display: Subject
     core.xillion.cloud/profiles:
       - core.xillion.cloud/xillion/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
     core.xillion.cloud/description: Is the name of the user as required by Health Insurance Portability and Accountability Act (HIPAA) Privacy Disclosure Accounting. The name will be typed as a string and in plain text.
   urn:oasis:names:tc:xacml:1.0:subject:group:
-    core.xillion.cloud/display-name: Group
+    core.xillion.cloud/display: Group
     core.xillion.cloud/profiles:
       - core.xillion.cloud/xillion/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
     core.xillion.cloud/description: User group(s).
   urn:oasis:names:tc:xacml:1.0:resource:resource-id:
-    core.xillion.cloud/display-name: Resource ID
+    core.xillion.cloud/display: Resource ID
     core.xillion.cloud/profiles:
       - core.xillion.cloud/xillion/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
     core.xillion.cloud/description: Unique identifier of the resource defined by and controlled by the servicing organization. In healthcare this is the patient unique identifier.
   http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname:
-    core.xillion.cloud/display-name: Given name
+    core.xillion.cloud/display: Given name
     core.xillion.cloud/profiles:
       - core.xillion.cloud/xillion/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
     core.xillion.cloud/description: Given name of this person
   http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress:
-    core.xillion.cloud/display-name: Email address
+    core.xillion.cloud/display: Email address
     core.xillion.cloud/profiles:
       - core.xillion.cloud/xillion/profiles/attribute
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string

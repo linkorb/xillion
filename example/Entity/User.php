@@ -23,7 +23,7 @@ class User implements ResourceConfigInterface
     {
         return [
             '$id' => $this->id,
-            'core.xillion.cloud/display-name' => $this->id,
+            'core.xillion.cloud/display' => $this->id,
             'core.xillion.cloud/profiles' => [
                 'example.linkorb.com/profiles/user',
             ],

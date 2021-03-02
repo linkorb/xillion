@@ -14,6 +14,23 @@ class ResourceLoader
     public function load(ResourceRepositoryInterface $repository, array $config): void
     {
         foreach ($config as $resourceId=>$attributes) {
+            foreach ($attributes as $k=>$subAttributes) {
+                // Check if attribute name ends in dollar postfix
+                if (substr($k, -1, 1)=='$') {
+                    unset($attributes[$k]); // unset the dollar postfixed attribute
+                    $k = substr($k, 0, -1); // strip dollar postfix
+                    // determine an id for the sub resource based on a hash of the content
+                    $json = json_encode($subAttributes);
+                    $subResourceId = 'inline/' . sha1($json);
+
+                    // Register the sub resource
+                    $subResource = new Resource($repository, $subResourceId, $subAttributes);
+                    $repository->addResource($subResource);
+
+                    // Add a new attribute to the original resource referencing the new subresource
+                    $attributes[$k] = $subResourceId;
+                }
+            }
             $resource = new Resource($repository, $resourceId, $attributes);
             $repository->addResource($resource);
         }

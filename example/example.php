@@ -146,4 +146,5 @@ foreach ($members as $member) {
     echo "Member: " . $member->getId() . PHP_EOL;
 }
 
+echo($card['core.xillion.cloud/display']) . PHP_EOL;
 // $validator->validateResource($resource);
