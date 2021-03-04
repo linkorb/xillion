@@ -75,7 +75,7 @@ resources:
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
 
-  core.xillion.cloud/subject/reference:
+  core.xillion.cloud/subject:
     core.xillion.cloud/profiles:
       - core.xillion.cloud/profiles/attribute
     core.xillion.cloud/display: Subject
