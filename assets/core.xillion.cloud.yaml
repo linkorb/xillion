@@ -69,7 +69,7 @@ resources:
       - core.xillion.cloud/profiles/attribute
 
   core.xillion.cloud/display:
-    core.xillion.cloud/display: Alias
+    core.xillion.cloud/display: Display name
     core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
     core.xillion.cloud/description: User-friendly display name for this resource
     core.xillion.cloud/profiles:
@@ -107,7 +107,19 @@ resources:
     core.xillion.cloud/description: Organization that publishes this resource
     core.xillion.cloud/is-array: false
 
+  core.xillion.cloud/html/summary:
+    core.xillion.cloud/display: Summary HTML view
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: HTML summary
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
+  core.xillion.cloud/html/details:
+    core.xillion.cloud/display: Details HTML view
+    core.xillion.cloud/data-type: core.xillion.cloud/data-types/string
+    core.xillion.cloud/description: HTML details
+    core.xillion.cloud/profiles:
+      - core.xillion.cloud/profiles/attribute
 
   # ========= [ PROFILES ] =========
 
