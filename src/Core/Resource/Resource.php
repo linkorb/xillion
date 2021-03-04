@@ -23,6 +23,11 @@ class Resource implements ResourceInterface, ArrayAccess
         return $this->id;
     }
 
+    public function getHash(): string
+    {
+        return sha1($this->id);
+    }
+
     protected function addAttribute(string $key, $value): void
     {
         $this->attributes[$key] = $value;
