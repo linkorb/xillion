@@ -51,8 +51,8 @@ foreach ($filenames as $filename) {
 
 foreach ($context->getResources() as $resource) {
     echo "\e[32m" . $resource->getId() . "\e[0m";
-    if ($resource->hasAttribute('core.xillion.cloud/alias')) {
-        $v = $resource->getAttribute('core.xillion.cloud/alias');
+    if ($resource->hasAttribute('core.xillion.cloud/display')) {
+        $v = $resource->getAttribute('core.xillion.cloud/display');
         echo " (\e[96m" . $v . "\e[0m)";
     }
     echo ":" . PHP_EOL;
@@ -135,16 +135,22 @@ foreach ($resource->getAttributes() as $k=>$v) {
 
 
 $card = $context->getResource('example.linkorb.com/cards/123');
-echo($card['core.xillion.cloud/alias']) . PHP_EOL;
+echo($card['core.xillion.cloud/display']) . PHP_EOL;
 
 $assignee = $card->resolve('example.linkorb.com/assignee');
 
-echo "Assignee: " . $assignee->getId() . PHP_EOL;
+echo "Assignee: " . $assignee->getId() . ' / ' . $assignee['core.xillion.cloud/display'] . PHP_EOL;
 
 $members = $card->resolve('example.linkorb.com/members');
 foreach ($members as $member) {
     echo "Member: " . $member->getId() . PHP_EOL;
 }
 
+// Test inline resources
+$card = $context->getResource('example.linkorb.com/cards/456');
 echo($card['core.xillion.cloud/display']) . PHP_EOL;
+echo($card['example.linkorb.com/assignee']);
+$assignee = $card->resolve('example.linkorb.com/assignee');
+echo "Assignee: " . $assignee->getId() . ' / ' . $assignee['core.xillion.cloud/display'] . PHP_EOL;
+
 // $validator->validateResource($resource);
