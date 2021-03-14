@@ -77,6 +77,13 @@ class Resource implements ResourceInterface, ArrayAccess
         return $this->attributes[$key];
     }
 
+    public function toArray(): array
+    {
+        return [
+            $this->getId() => $this->getAttributes()
+        ];
+    }
+
     public function resolve(string $key)
     {
         // echo "Getting attribute $key\n";
