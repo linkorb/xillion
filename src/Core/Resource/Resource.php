@@ -120,11 +120,11 @@ class Resource implements ResourceInterface, ArrayAccess
 
     public function offsetSet($offset, $value): void
     {
-        throw new RuntimeException("Attribute setting not yet implemented");
+        $this->attributes[$offset] = $value;
     }
 
     public function offsetUnset($offset): void
     {
-        throw new RuntimeException("Attribute clearing not yet implemented");
+        unset($this->attributes[$offset]);
     }
 }
