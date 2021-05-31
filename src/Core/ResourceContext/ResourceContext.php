@@ -35,6 +35,10 @@ class ResourceContext implements ResourceContextInterface, ResourceRepositoryInt
             $resources = array_merge($resources, $repoResources);
         }
 
+        usort($resources, function($b, $a) {
+            return strcmp($a['core.xillion.cloud/datetime'] ?? null, $b['core.xillion.cloud/datetime'] ?? null);
+        });
+
         return $resources;
     }
 
@@ -68,6 +72,11 @@ class ResourceContext implements ResourceContextInterface, ResourceRepositoryInt
             $repoResources = $repository->getResourcesByAttribute($attributeId, $value);
             $resources = array_merge($resources, $repoResources);
         }
+
+        usort($resources, function($b, $a) {
+            return strcmp($a['core.xillion.cloud/datetime'] ?? null, $b['core.xillion.cloud/datetime'] ?? null);
+        });
+
         return $resources;
     }
 
@@ -79,6 +88,11 @@ class ResourceContext implements ResourceContextInterface, ResourceRepositoryInt
             $repoResources = $repository->getResourcesWithAttribute($attributeId);
             $resources = array_merge($resources, $repoResources);
         }
+
+        usort($resources, function($b, $a) {
+            return strcmp($a['core.xillion.cloud/datetime'] ?? null, $b['core.xillion.cloud/datetime'] ?? null);
+        });
+
         return $resources;
     }
 
