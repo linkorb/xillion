@@ -36,7 +36,7 @@ class ResourceContext implements ResourceContextInterface, ResourceRepositoryInt
         }
 
         usort($resources, function($b, $a) {
-            return strcmp($a['core.xillion.cloud/datetime'] ?? null, $b['core.xillion.cloud/datetime'] ?? null);
+            return strcmp($a['core.xillion.cloud/datetime'] ?? '', $b['core.xillion.cloud/datetime'] ?? '');
         });
 
         return $resources;
